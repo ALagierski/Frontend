@@ -43,7 +43,7 @@ python3 -m pytest --cov=. --cov-report xml:test-results/coverage.xml --junitxml=
         }
         stage('Deploy Image') {
             steps {
-                withDockerRegistry(credentialsId: 'artifactory', url: "${dockerRegistry}") {
+                withDockerRegistry(credentialsId: 'dockerhub', url: "${dockerRegistry}") {
                     script {
                         applicationImage.push()
                         applicationImage.push("latest")
